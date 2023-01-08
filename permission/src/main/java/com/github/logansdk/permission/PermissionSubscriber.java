@@ -67,11 +67,25 @@ public class PermissionSubscriber
                 RequirePermissionListener requireListener = (RequirePermissionListener)listener;
 
                 if (!rejected.isEmpty())
-                    requireListener.onRejected(denied, rejected);
+                {
+                    if (denied.isEmpty())
+                    {
+                        requireListener.onRejected(rejected);
+                    }
+                    else
+                    {
+                        denied.addAll(rejected);
+                        requireListener.onDenied(denied);
+                    }
+                }
                 else if (!denied.isEmpty())
+                {
                     requireListener.onDenied(denied);
+                }
                 else
+                {
                     requireListener.onGranted();
+                }
             }
 
             unregister();

@@ -6,5 +6,5 @@ public interface RequirePermissionListener extends PermissionListener
 {
     void onGranted();
     void onDenied(ArrayList<String> denied);
-    void onRejected(ArrayList<String> denied, ArrayList<String> rejected);
+    void onRejected(ArrayList<String> rejected);
 }

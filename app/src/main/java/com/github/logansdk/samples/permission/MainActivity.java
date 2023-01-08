@@ -136,24 +136,15 @@ public class MainActivity extends AppCompatActivity
             }
 
             @Override
-            public void onRejected(ArrayList<String> denied, ArrayList<String> rejected)
+            public void onRejected(ArrayList<String> rejected)
             {
                 // At least one permission is rejected
                 // Denied permission without ask never again
-                StringBuilder sb = new StringBuilder();
-                sb.append("At least one permission is rejected.\n\n");
-
-                if (!denied.isEmpty())
-                    sb.append("[denied]\n").append(denied).append("\n\n");
-
-                sb.append("[rejected]\n").append(rejected);
-                tvResult.setText(sb.toString());
+                String message = "At least one permission is rejected.\n\n[rejected]\n" + rejected;
+                tvResult.setText(message);
 
                 // The permission request dialog box can no longer be displayed
-                if (denied.isEmpty())
-                    showPermissionRationale(rejected);
-                else
-                    Toast.makeText(MainActivity.this, "Permissions must be granted.", Toast.LENGTH_SHORT).show();
+                showPermissionRationale(rejected);
             }
         });
     };
