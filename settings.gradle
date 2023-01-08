@@ -1,0 +1,5 @@
+rootProject.name = "logan-permission"
+include ':app'
+include ':permission'
+
+project(':permission').name = 'permission'
