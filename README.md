@@ -21,7 +21,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.logansdk:logan-permission:0.9.24'
+    implementation 'com.github.logansdk:logan-permission:0.9.25'
 }
 ```
 
@@ -114,18 +114,14 @@ PermissionManager.with(this, permissions).check(new RequirePermissionListener()
     }
 
     @Override
-    public void onRejected(ArrayList<String> denied, ArrayList<String> rejected)
+    public void onRejected(ArrayList<String> rejected)
     {
         // At least one permission is rejected
         // Denied permission without ask never again
-        Log.d("LOG", denied.toString());
         Log.d("LOG", rejectd.toString());
         
         // The permission request dialog box can no longer be displayed
-        if (denied.isEmpty())
-            showPermissionRationale(rejected);
-        else
-            Toast.makeText(MainActivity.this, "Permissions must be granted.", Toast.LENGTH_SHORT).show();
+        showPermissionRationale(rejected);
     }
 });
 ```
