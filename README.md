@@ -33,7 +33,9 @@ dependencies {
 * There are three types of permission request results.
   - granted : Permission granted.
   - denied : Permission denied.
-  - rejected : When a user can no longer request a permission that has been denied. (ask never again)
+  - rejected : User doesn't see the system permissions dialog.
+    - Deny and don't ask again. ( < API Level 30 )
+    - Deny twice for a permission. ( >= API Level 30 )
 
 ### Check permissions :
 
@@ -117,10 +119,10 @@ PermissionManager.with(this, permissions).check(new RequirePermissionListener()
     public void onRejected(ArrayList<String> rejected)
     {
         // At least one permission is rejected
-        // Denied permission without ask never again
+        // The user doesn't see the system permissions dialog if your app requests that permission again.
         Log.d("LOG", rejectd.toString());
         
-        // The permission request dialog box can no longer be displayed
+        // Displays a dialog that guides the user to set permissions.
         showPermissionRationale(rejected);
     }
 });
