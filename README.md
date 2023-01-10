@@ -21,7 +21,7 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.github.logansdk:logan-permission:0.9.25'
+    implementation 'com.github.logansdk:logan-permission:0.9.26'
 }
 ```
 

@@ -13,7 +13,8 @@
         <activity
             android:name=".PermissionActivity"
             android:theme="@style/Theme.Permission"
-            android:screenOrientation="unspecified">
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout">
         </activity>
 
     </application>

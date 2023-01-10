@@ -139,11 +139,11 @@ public class MainActivity extends AppCompatActivity
             public void onRejected(ArrayList<String> rejected)
             {
                 // At least one permission is rejected
-                // Denied permission without ask never again
+                // The user doesn't see the system permissions dialog if your app requests that permission again.
                 String message = "At least one permission is rejected.\n\n[rejected]\n" + rejected;
                 tvResult.setText(message);
 
-                // The permission request dialog box can no longer be displayed
+                // Displays a dialog that guides the user to set permissions.
                 showPermissionRationale(rejected);
             }
         });
